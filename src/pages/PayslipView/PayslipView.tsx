@@ -14,6 +14,13 @@ import {
 import { useParams } from 'react-router'
 import './PayslipView.css'
 import formatDate from '../../utils/date/dateFormat'
+import {
+  Directory,
+  DownloadFileOptions,
+  Filesystem,
+} from '@capacitor/filesystem'
+import { FileOpener } from '@capacitor-community/file-opener'
+import DownloadButton from '../../components/DownloadButton/DownloadButton'
 
 const ViewPayslip: React.FC = () => {
   const [payslip, setPayslip] = useState<Payslip>()
@@ -24,7 +31,18 @@ const ViewPayslip: React.FC = () => {
     setPayslip(psyl)
   })
 
-  const handleDownload = async () => {}
+  const handleDownload = async () => {
+    const options: DownloadFileOptions = {
+      url: payslip?.file ?? '',
+      directory: Directory.Data,
+      path: `${+new Date()}.pdf`,
+      progress: true,
+    }
+
+    var result = await Filesystem.downloadFile(options)
+    var filePath = result.path ?? ''
+    FileOpener.open({ filePath })
+  }
 
   return (
     <IonPage id="view-payslip-page">
@@ -51,9 +69,7 @@ const ViewPayslip: React.FC = () => {
             </>
           </IonContent>
           <IonFooter className="ion-padding">
-            <IonButton expand="block" onClick={handleDownload}>
-              Download Payslip
-            </IonButton>
+            <DownloadButton downloadUrl={payslip.file} />
           </IonFooter>
         </>
       ) : (
