@@ -1,0 +1,43 @@
+#view-payslip-page ion-item {
+    --inner-padding-end: 0;
+    --background: transparent;
+  }
+  
+  #view-payslip-page ion-label {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  
+  #view-payslip-page ion-item h2 {
+    font-weight: 600;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  #view-payslip-page ion-item .date {
+    align-items: center;
+    display: flex;
+  }
+  
+  #view-payslip-page ion-item ion-icon {
+    font-size: 42px;
+    margin-right: 8px;
+  }
+  
+  #view-payslip-page ion-item ion-note {
+    font-size: 0.9375rem;
+    margin-right: 12px;
+    font-weight: normal;
+  }
+  
+  #view-payslip-page h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+  
+  #view-payslip-page p {
+    line-height: 1.4;
+  }

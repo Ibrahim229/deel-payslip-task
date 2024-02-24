@@ -12,15 +12,12 @@ const PayslipListItem: React.FC<PayslipListItemProps> = ({ payslip }) => {
   const [isOpened, setIsOpened] = useState(false)
 
   useEffect(() => {
-    // Check if the item has been opened before
     const opened = localStorage.getItem(`payslip_${payslip.id}_opened`)
     setIsOpened(!!opened)
   }, [payslip.id])
 
   const handleClick = () => {
-    // Store the opened item in local storage
     localStorage.setItem(`payslip_${payslip.id}_opened`, 'true')
-    // Update the state to hide the dot
     setIsOpened(true)
   }
   return (
