@@ -1,14 +1,7 @@
-import { IonPage } from "@ionic/react";
+import { IonPage } from '@ionic/react'
 
-
-
-  const ViewPayslip: React.FC = () =>{
-
-  return (
-    <IonPage id="viewPayslip-page">
-
-    </IonPage>
-  );
+const ViewPayslip: React.FC = () => {
+  return <IonPage id="viewPayslip-page"></IonPage>
 }
 
-export default ViewPayslip;
+export default ViewPayslip
