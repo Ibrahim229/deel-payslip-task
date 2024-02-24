@@ -12,6 +12,8 @@ import {
   IonToolbar,
   useIonViewWillEnter,
 } from '@ionic/react'
+import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '../../utils/animationVariants/animationVariants';
 import './Home.css'
 
 const Home: React.FC = () => {
@@ -49,9 +51,13 @@ const Home: React.FC = () => {
         </IonHeader>
 
         <IonList>
-          {payslips.map((m) => (
-            <PayslipListItem key={m.id} payslip={m} />
-          ))}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="payslip-list"
+          >
+            {payslips.map(m =><motion.div key={m.id} variants={itemVariants} > <PayslipListItem key={m.id} payslip={m} /></motion.div>)}</motion.div>
         </IonList>
       </IonContent>
     </IonPage>
